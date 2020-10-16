@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main(){
+    int X1, V1, X2, V2, z;
+    printf("masukan nilai X1 V1 X2 V2 dipisah dengan spasi\n");
+    scanf("%d %d %d %d",&X1,&V1,&X2,&V2);
+    z=1;
+    if(X1<0 || X1>1000)
+        printf("Rentang nilai awal jangkrik 1 mulai dari 0 - 1000\n");
+    else if(X2<=X1)
+        printf("nilai awal jangkrik 2 harus lebih besar dari jangkrik 1\n");
+    else if(X2>1000)
+        printf("Rentang nilai awal jangkrik 2 mulai dari 0 - 1000\n");
+    else if(V1<1 || V1>1000)
+        printf("Rentang nilai lompat jangkrik 1 mulai dari 1 - 1000\n");
+    else if(V2<1 || V2 > 1000)
+        printf("Rentang nilai lompat jangkrik 2 mulai dari 1 - 1000\n");
+    else if(V2>=V1)
+        printf("No (Jangkrik Tidak Bertemu)");
+    else 
+        while(z>0){
+        X1 = X1+V1;
+        X2 = X2+V2;
+        if(X1==X2){
+          printf("Yes,( pada lompatan ke-%d, jangkrik 1 dan 2 telah bertemu )",z);
+          break;
+        }
+        if(X1/X2>0){
+          printf("No (Jangkrik Tidak Bertemu)");
+          break;
+        }
+        z++;
+        }
+    return 0;
+}
