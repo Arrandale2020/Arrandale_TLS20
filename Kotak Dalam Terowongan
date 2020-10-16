@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+struct box{
+	   int panjang, lebar, tinggi;
+};
+   
+int main()
+{
+   int n,i,k;
+   printf("jumlah kotak yang akan kamu kirim adalah (1-100) = ");
+   scanf("%d",&n);
+   while(n<=0 || n>100){
+       printf("jumlah kotak yang akan kamu kirim adalah (1-100) = ");
+       scanf("%d",&n);  
+   }
+   struct box kotak[n];
+   printf("\n");
+   i=0;
+   printf("(panjang) (lebar) (tinggi) , pisahkan dengan spasi \n",i);
+   while(i<n){
+       scanf("%d %d %d",&kotak[i].panjang,&kotak[i].lebar,&kotak[i].tinggi);
+       if(kotak[i].panjang<1 || kotak[i].panjang>100)
+       printf("Error, masukkan panjang kotak mulai dari 1 - 100\n");
+       else if(kotak[i].lebar<1 || kotak[i].lebar>100)
+       printf("Error, masukkan lebar kotak mulai dari 1 - 100\n");
+       else if(kotak[i].tinggi<1 || kotak[i].tinggi>100)
+       printf("Error, masukkan tinggi kotak mulai dari 1 - 100\n");
+       else
+       i++;
+   }
+   printf("\n");
+   for(k=0;k<n;k++){
+       if(kotak[k].tinggi>=41)
+       printf("");
+       else
+       printf("%d\n",kotak[k].panjang*kotak[k].lebar*kotak[k].tinggi);
+   }
+   return 0;
+}
